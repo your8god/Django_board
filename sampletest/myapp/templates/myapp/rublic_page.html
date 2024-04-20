@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Категория: {{c_rublic.name}}</title>
+    <style>
+        div {
+            background: linear-gradient(to top, rgb(108, 108, 246), rgb(1, 240, 1));
+            border: 1px solid black;
+            margin-top: 10px;
+            box-shadow: 10px 5px 5px blueviolet;
+            padding: 0 25px;
+            border-radius: 50px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            color:antiquewhite;
+        }
+        body {
+            background: linear-gradient(to right, red, yellow); 
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <span>Категории: </span>
+    <a href="{% url 'myapp:main' %}">Главная</a>
+    {% for i in rublics %}
+    <a href="{% url 'myapp:rublic_page' i.pk %}">{{i.name}}</a>
+    {% endfor %}
+
+    <h1>{{c_rublic.name}}</h1>
+
+    {% for i in items %}
+    <div>
+        <h2><b><a href="{% url 'myapp:index_page' i.id %}">{{i.title}}</a></b></h2>
+        <p>{{i.content}}</p>
+        <p style="font-size: 125%;"><b>{{i.price}} руб.</b></p>
+        <hr>
+        <p><a href="{% url 'myapp:rublic_page' i.rublic.pk %}">{{i.rublic.name}}</a></p>
+        <p style="font-size: 85%; font-style: italic;">{{i.published|date:"d.m.Y H:i:s"}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
