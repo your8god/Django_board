@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Категория: {{c_rublic.name}}{% endblock %}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'myapp/div_style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'myapp:main' %}">Главная</a>
+        {% for i in rublics %}
+        <a href="{% url 'myapp:rublic_page' i.pk %}">{{i.name}}</a>
+        {% endfor %}
+        <a href="{% url 'myapp:add' %}">Добавить объявление</a>
+    </nav>
+    <h1>{% block title_2 %}{% endblock %}</h1>
+
+    {% for i in items %}
+    <div>
+        <h2><b><a href="{% url 'myapp:index_page' i.id %}">{{i.title}}</a></b></h2>
+        <p>{{i.content}}</p>
+        <p class="price"><b>{{i.price}} руб.</b></p>
+        <hr>
+        <p><a href="{% url 'myapp:rublic_page' i.rublic.pk %}">{{i.rublic.name}}</a></p>
+        <p style="font-size: 85%; font-style: italic;">{{i.published|date:"d.m.Y H:i:s"}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>

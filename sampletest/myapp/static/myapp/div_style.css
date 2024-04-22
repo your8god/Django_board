@@ -1,0 +1,41 @@
+div {
+    background: linear-gradient(to top, rgb(108, 108, 246), rgb(1, 240, 1));
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-left: 150px;
+    box-shadow: 10px 5px 5px blueviolet;
+    padding: 0 25px;
+    border-radius: 50px;
+}
+h1, h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5s ease-in-out;
+}
+a:hover {
+    color:antiquewhite;
+}
+body {
+    background: linear-gradient(to right, red, yellow); 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+p.price {
+    transition: all 0.5s;
+    font-size: 125%
+}
+p:hover.price {
+    font-size: 150%;
+    color:antiquewhite;
+}
+nav {
+    width: 150px;
+    float: left;
+}
+nav a {
+    display: block;
+    margin:  10px 0px;
+}

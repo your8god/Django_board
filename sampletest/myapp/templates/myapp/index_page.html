@@ -12,22 +12,31 @@
         a {
             text-decoration: none;
             color: black;
+            transition: color 0.5s ease-in-out;
         }
         a:hover {
             color:antiquewhite;
+        }
+        p.price {
+            transition: all 0.3s;
+            font-size: 125%
+        }
+        p:hover.price {
+            font-size: 150%;
+            font-weight: bolder;
         }
     </style>
 </head>
 <body>
     <span>Категории: </span>
-    <a href="{% url 'myapp:main' %}">Главная</a>
+    <a href="{% url 'myapp:main' %}">Главная</a> 
     {% for i in rublics %}
     <a href="{% url 'myapp:rublic_page' i.pk %}">{{i.name}}</a>
     {% endfor %}
 
     <h1>{{item.title}}</h1>
     <p>{{item.content}}</p>
-    <p>{{item.price}}</p>
+    <p class="price">{{item.price}}</p>
     <hr>
     <a href="{% url 'myapp:rublic_page' item.rublic.pk %}">{{item.rublic.name}}</a>
 </body>
