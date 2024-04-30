@@ -39,5 +39,9 @@
     <p class="price">{{item.price}}</p>
     <hr>
     <a href="{% url 'myapp:rublic_page' item.rublic.pk %}">{{item.rublic.name}}</a>
+    <div style="border:solid 1px black; margin-top:30%; margin-right=75%">
+        <h2><a href="{% url 'myapp:update' item.pk %}">Обновить</a><h2>
+        <h2><a href="{% url 'myapp:delete' item.pk %}">Удалить</a><h2>
+    </div>
 </body>
 </html>

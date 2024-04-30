@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<htm>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} объявление</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'myapp/div_style.css' %}">
+</head>
+<body>
+    <h1>{% block title_h1 %}{% endblock title_h1 %} элемента</h1>
+    <a href="{% url 'myapp:main' %}">Главная</a>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value={% block button %}{% endblock %}>
+    </form>
+</body>
+</html>

@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<htm>
-<head>
-    <meta charset="UTF-8">
-    <title>Добавить объявление</title>
-</head>
-<body>
-    <h1>Добавление элемента</h1>
-    <a href="{% url 'myapp:main' %}">Главная</a>
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Добавить">
-    </form>
-</body>
-</html>
+{% extends "layout/form_template.html" %}
+
+{% block title%}Добавить{% endblock %}
+{% block title_h1 %}Добавление{% endblock title_h1 %}
+{% block button %}"Добавить"{% endblock %}

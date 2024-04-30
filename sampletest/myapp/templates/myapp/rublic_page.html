@@ -2,3 +2,6 @@
 
 {% block title %}Категория: {{c_rublic.name}}{% endblock %}
 {% block title_2 %}{{c_rublic.name}}{% endblock %}
+{% block paginator %}
+{% include 'layout/paginator.html' with page=items%}
+{% endblock paginator %}
