@@ -5,42 +5,35 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Категория: {{c_rublic.name}}{% endblock %}</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'myapp/div_style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'myapp/board.css' %}">
 </head>
 <body>
-    <nav>
-        <a href="{% url 'myapp:main' %}">Главная</a>
-        {% for i in rublics %}
-        <a href="{% url 'myapp:rublic_page' i.pk %}">{{i.name}}</a>
-        {% endfor %}
-        <a href="{% url 'myapp:add' %}">Добавить объявление</a>
-    </nav>
-
-    <div class="ll">
-        {% if user.is_authenticated %}
-            <p><a href="{% url 'logout' %}">Выход</a></p>
-            {% if user.username == "admin" %}
-                <p><b><a href="http://127.0.0.1:8000/admin/">Go to admin-site</a></b></p>
-            {% endif %}
-        {% else %}
-            <p><a href="{% url 'login' %}">Вход</a></p>
-        {% endif %}
-    </div>
-
     <h1>{% block title_2 %}{% endblock %}</h1>
 
-    {% for i in items %}
-    <div>
-        <h2><b><a href="{% url 'myapp:index_page' i.id %}">{{i.title}}</a></b></h2>
-        <p>{{i.content}}</p>
-        <p class="price"><b>{{i.price}} руб.</b></p>
-        <hr>
-        <p><a href="{% url 'myapp:rublic_page' i.rublic.pk %}">{{i.rublic.name}}</a></p>
-        <p style="font-size: 85%; font-style: italic;">{{i.published|date:"d.m.Y H:i:s"}}</p>
+    <div class="left_block">
+        <a class="changeable_in_blue" href="{% url 'myapp:main' %}">Главная</a><br>
+        {% for i in rublics %}
+        <a class="changeable_in_blue" href="{% url 'myapp:rublic_page' i.pk %}">{{i.name}}</a><br>
+        {% endfor %}
+        <a class="changeable_in_blue" href="{% url 'myapp:add' %}">Добавить объявление</a>
     </div>
-    {% endfor %}
-    {% block paginator %}
-    
-    {% endblock paginator %}
+
+    {% include "layout/user_info.html" %}
+
+    <div class="main_cl">
+        {% for i in items %}
+        <div class="section">
+            <h2><b><a href="{% url 'myapp:index_page' i.id %}">{{i.title}}</a></b></h2>
+            <p>{{i.content}}</p>
+            <p class="price"><b>{{i.price}} руб.</b></p>
+            <hr>
+            <p><a href="{% url 'myapp:rublic_page' i.rublic.pk %}">{{i.rublic.name}}</a></p>
+            <p class="date">{{i.published|date:"d.m.Y H:i:s"}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% block paginator %}{% endblock paginator %}
+
 </body>
 </html>

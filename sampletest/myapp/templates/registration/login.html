@@ -1,24 +1,20 @@
-{% load static %}
+{% extends "layout/password_template.html" %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Вход</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'myapp/div_style.css' %}">
-</head>
-<body>
-    <h1>Вход</h1>
-    {% if user.is_authenticated %}
-        <p>Вы уже вошли как {{ user.username }}</p>
-    {% else %}
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="hidden" name="next" value="{{ next }}">
-            <input type="submit" value="Вход">
-        </form>
-        <a href='{% url "password_reset" %}'>Забыли пароль?</a>
-    {% endif %}
-</body>
-</html>
+
+{% block title %}Вход{% endblock title %}
+{% block header %}Вход{% endblock header %}
+{% block content %}
+    <div class='d_form'>
+        {% if user.is_authenticated %}
+            <p>Вы уже вошли как {{ user.username }}</p>
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="hidden" name="next" value="{{ next }}">
+                <input type="submit" value="Вход">
+            </form>
+            <a id="forgot_pass" href='{% url "password_reset" %}'>Забыли пароль?</a>
+        {% endif %}
+    </div>
+{% endblock content %}

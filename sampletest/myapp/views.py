@@ -4,6 +4,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.db import models
 from django.core.paginator import Paginator
+#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Bb, Rublic
 from .forms import BbForm
@@ -32,7 +34,7 @@ def rublic_page(request, rublic_id):
     return render(request, 'myapp/rublic_page.html', {'c_rublic':cur_rublic, 'items':page, 'rublics':rublics})
 
 
-class BbCreateView(CreateView):
+class BbCreateView(LoginRequiredMixin, CreateView):
     template_name = 'myapp/create.html'
     form_class = BbForm
     success_url = reverse_lazy('myapp:main')
@@ -44,7 +46,7 @@ class BbCreateView(CreateView):
         return context 
     
 
-class BbUpdateView(UpdateView):
+class BbUpdateView(LoginRequiredMixin, UpdateView):
     form_class = BbForm
     template_name = 'myapp/update.html'
     success_url = reverse_lazy('myapp:main')
@@ -56,7 +58,7 @@ class BbUpdateView(UpdateView):
         return context 
     
 
-class BbDeleteView(DeleteView):
+class BbDeleteView(LoginRequiredMixin, DeleteView):
     model = Bb
     #form_kwargs = {'rublic_id':}
     #success_url = 'bboard/rublic/{rublic_id}'

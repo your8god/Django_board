@@ -1,9 +1,9 @@
-<div>
+<div class="right_block">
     {% if page.has_previous %}
-        <a href="?page={{ page.previous_page_number }}">Прошлая</a>
+        <a class="changeable_in_blue" href="?page={{ page.previous_page_number }}">&#60;</a>
     {% endif %}
     Страница {{ page.number }} из {{ page.paginator.num_pages }}
     {% if  page.has_next %}
-        <a href="?page={{ page.next_page_number }}">Следующая</a>
+        <a class="changeable_in_blue" href="?page={{ page.next_page_number }}">&#62;</a>
     {% endif %}
 </div>

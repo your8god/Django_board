@@ -1,0 +1,97 @@
+h1, h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+h1 {
+    clear: both;
+}
+a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5s ease-in-out;
+}
+a:hover.changeable_in_blue {
+    color:antiquewhite;
+}
+a:hover {
+    color:rgb(105, 184, 253);
+}
+body {
+    background-color: antiquewhite; 
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+p.price {
+    transition: all 0.5s;
+    font-size: 125%
+}
+p:hover.price {
+    font-size: 150%;
+    color:rgb(105, 184, 253);
+}
+p.date {
+    font-size: 85%; 
+    font-style: italic;
+}
+.left_block {
+    width: 11%;
+    float: left;
+    background-color: rgb(105, 184, 253);
+    margin-right: 10px;
+    padding: 10px 0 10px 10px;
+    border-radius: 15px;
+}
+.main_cl {
+    width: 76%;
+    float: left;
+}
+.right_block {
+    width: 11%;
+    float: right;
+    background-color: rgb(105, 184, 253);
+    padding: 0 0 0 10px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    clear: right;
+}
+.section {
+    border: 1px grey solid;
+    margin-bottom : 10px;
+    background-color: rgb(235, 222, 205);
+    border-radius: 10px;
+    padding: 0 15px 0 15px;
+}
+
+
+.d_form {
+    display: table;
+    background-color: rgb(105, 184, 253);
+    border-radius: 15px;
+    border: grey solid 1.5px;
+    padding: 15px 10px 15px 10px;
+    float: left;
+}
+label { 
+    float:left;
+    clear:both;
+}
+input, textarea { 
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#ededed;
+    padding:6px 10px;
+
+}
+input[type=submit] {
+    font-weight:bold;
+    background:rgb(235, 222, 205);
+    color:rgb(105, 184, 253);
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase; 
+}
+#forgot_pass {
+    clear:both;
+    float:left;
+}

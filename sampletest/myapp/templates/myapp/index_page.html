@@ -1,47 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Объявление {{item.id}}</title>
-    <style>
-        body {
-            background: linear-gradient(to right, rgb(85, 255, 63), rgb(193, 122, 241)); 
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            background-size:100% 100%;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-            transition: color 0.5s ease-in-out;
-        }
-        a:hover {
-            color:antiquewhite;
-        }
-        p.price {
-            transition: all 0.3s;
-            font-size: 125%
-        }
-        p:hover.price {
-            font-size: 150%;
-            font-weight: bolder;
-        }
-    </style>
+    <link href="{% static 'myapp/board.css' %}" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <span>Категории: </span>
-    <a href="{% url 'myapp:main' %}">Главная</a> 
-    {% for i in rublics %}
-    <a href="{% url 'myapp:rublic_page' i.pk %}">{{i.name}}</a>
-    {% endfor %}
-
     <h1>{{item.title}}</h1>
-    <p>{{item.content}}</p>
-    <p class="price">{{item.price}}</p>
-    <hr>
-    <a href="{% url 'myapp:rublic_page' item.rublic.pk %}">{{item.rublic.name}}</a>
-    <div style="border:solid 1px black; margin-top:30%; margin-right=75%">
-        <h2><a href="{% url 'myapp:update' item.pk %}">Обновить</a><h2>
-        <h2><a href="{% url 'myapp:delete' item.pk %}">Удалить</a><h2>
+
+    <div class="left_block">
+        <a class="changeable_in_blue" href="{% url 'myapp:main' %}">Главная</a><br>
+        {% for i in rublics %}
+        <a class="changeable_in_blue" href="{% url 'myapp:rublic_page' i.pk %}">{{i.name}}</a><br>
+        {% endfor %}
+    </div>
+
+     {% include "layout/user_info.html" %}
+
+    <div class="main_cl">
+        <p>{{item.content}}</p>
+        <p class="price">{{item.price}}</p>
+        <hr>
+        <a href="{% url 'myapp:rublic_page' item.rublic.pk %}">{{item.rublic.name}}</a>
+        <p class="date">{{item.published|date:"d.m.Y H:i:s"}}</p>
+    </div>
+
+    <div class="right_block">
+        <p><a class="changeable_in_blue" href="{% url 'myapp:update' item.pk %}">Обновить</a><p>
+        <p><a class="changeable_in_blue" href="{% url 'myapp:delete' item.pk %}">Удалить</a><p>
     </div>
 </body>
 </html>
