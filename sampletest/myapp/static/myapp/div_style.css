@@ -43,6 +43,10 @@ p:hover.price {
     font-size: 150%;
     color:antiquewhite;
 }
+p.date {
+    font-size: 85%; 
+    font-style: italic;
+}
 nav {
     width: 150px;
     float: left;

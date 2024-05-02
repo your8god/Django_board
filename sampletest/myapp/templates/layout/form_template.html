@@ -4,30 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} объявление</title>
-    <link type="text/css" rel="stylesheet" href="{% static 'myapp/div_style.css' %}">
-    <style>
-        button {
-            margin-left: 45%;
-            background: linear-gradient(to top, rgb(108, 108, 246), rgb(1, 240, 1));
-            height: 50px;
-            width: 150px;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'myapp/board.css' %}">
 </head>
 <body>
     <h1>{% block title_h1 %}{% endblock title_h1 %} элемента</h1>
-    <a href="{% url 'myapp:main' %}">Главная</a>
-    {% if user.is_authenticated %}
+    <div class="left_block">
+        <a class="changeable_in_blue" href="{% url 'myapp:main' %}">Главная</a><br>
+    </div>
+     {% include "layout/user_info.html" %}
+    <div class="d_form">
         <form method="post">
             {% csrf_token %}
             {{form.as_p}}
             <input type="submit" value={% block button %}{% endblock %}>
         </form>
-    {% else %}
-        <div>
-        <p style="font-size:250%;font-variant: small-caps;font-weight: bold;text-align:center;">Для взаимодействия с объявлениями необходимо выполнить вход!!!</p>
-        <a href="{% url 'login' %}"><button>Войти</button></a>
-        </div>
-    {% endif %}
+    </div>
 </body>
 </html>
