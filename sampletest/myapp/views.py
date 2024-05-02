@@ -36,12 +36,11 @@ class BbCreateView(CreateView):
     template_name = 'myapp/create.html'
     form_class = BbForm
     success_url = reverse_lazy('myapp:main')
+    
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rublics'] = Rublic.objects.all()
-        for k, v in context.items():
-            print(f'key {k}:\nvalue: {v}')
         return context 
     
 
@@ -55,12 +54,6 @@ class BbUpdateView(UpdateView):
         context = super().get_context_data(**kwargs)
         context['rublics'] = Rublic.objects.all()
         return context 
-    
-    def get(self, request, *args, **kwargs) -> HttpResponse:
-        print(self)
-        print(request)
-        print(kwargs)
-        return super().get(request, *args, **kwargs)
     
 
 class BbDeleteView(DeleteView):

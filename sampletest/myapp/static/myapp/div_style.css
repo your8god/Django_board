@@ -1,3 +1,15 @@
+ll {
+    float: right;
+    width:50px;
+    border: solid white 2px;
+    box-shadow: 3px 4px 10px yellowgreen;
+    animation: logout 3s ease-in-out infinite;
+}
+@keyframes logout {
+    0% {color: black;}
+    50% {color: red; transform: 1.5;}
+    90% {color: white; transform: 2;}
+}
 div {
     background: linear-gradient(to top, rgb(108, 108, 246), rgb(1, 240, 1));
     border: 1px solid black;

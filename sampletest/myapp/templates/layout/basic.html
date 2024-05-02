@@ -15,6 +15,18 @@
         {% endfor %}
         <a href="{% url 'myapp:add' %}">Добавить объявление</a>
     </nav>
+
+    <div class="ll">
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'logout' %}">Выход</a></p>
+            {% if user.username == "admin" %}
+                <p><b><a href="http://127.0.0.1:8000/admin/">Go to admin-site</a></b></p>
+            {% endif %}
+        {% else %}
+            <p><a href="{% url 'login' %}">Вход</a></p>
+        {% endif %}
+    </div>
+
     <h1>{% block title_2 %}{% endblock %}</h1>
 
     {% for i in items %}
