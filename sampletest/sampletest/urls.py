@@ -19,14 +19,16 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetConfir
 
 from django.shortcuts import redirect
 
+from .captcha_form import CheckPasswordForm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: redirect('bboard/', permanent=True)),
+    path('captcha/', include('captcha.urls')),
 
     path('bboard/', include('myapp.urls')),
 
-    path('accounts/login/', LoginView.as_view(next_page='myapp:main'), name='login'),
+    path('accounts/login/', LoginView.as_view(next_page='myapp:main', extra_context={'captcha': CheckPasswordForm()}), name='login'),
     path('accounts/logout/', LogoutView.as_view(next_page="myapp:main"), name='logout'),
     
     path('accounts/password_reset/', PasswordResetView.as_view(), name='password_reset'),

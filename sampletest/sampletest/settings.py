@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ from .email_settings import EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+CAPTCHA_LENGTH = 6

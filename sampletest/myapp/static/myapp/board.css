@@ -81,7 +81,7 @@ label {
     width: 300px;
     margin-bottom: 5px;
 }
-input, textarea, select { 
+input, textarea, select, img { 
     clear:both;
     float:left;
     margin-left: 12%;
