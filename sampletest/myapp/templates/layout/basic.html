@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1>{% block title_2 %}{% endblock %}</h1>
-
     <div class="left_block">
         <a class="changeable_in_blue" href="{% url 'myapp:main' %}">Главная</a><br>
         {% for i in rublics %}
@@ -38,6 +37,5 @@
     </div>
 
     {% block paginator %}{% endblock paginator %}
-
 </body>
 </html>

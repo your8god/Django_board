@@ -40,10 +40,16 @@ p.date {
     margin-right: 10px;
     padding: 10px 0 10px 10px;
     border-radius: 15px;
+<<<<<<< HEAD
 
 }
 .main_cl {
     width: 75%;
+=======
+}
+.main_cl {
+    width: 76%;
+>>>>>>> 28aa39cbc2b908b2694b1832ebb294a513ef31c8
     float: left;
 }
 .right_block {
@@ -54,7 +60,6 @@ p.date {
     border-radius: 15px;
     margin-bottom: 15px;
     clear: right;
-
 }
 .section {
     border: 1px grey solid;
@@ -66,7 +71,6 @@ p.date {
 
 
 .d_form {
-    position: absolute;
     background-color: rgb(105, 184, 253);
     border-radius: 15px;
     border: grey solid 1.5px;
@@ -93,6 +97,25 @@ input[type=submit] {
     margin-left: 33%;
     margin-top: 15px;
     width: 100px;
+}
+label { 
+    float:left;
+    clear:both;
+}
+input, textarea { 
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#ededed;
+    padding:6px 10px;
+}
+input[type=submit] {
+    font-weight:bold;
+    background:rgb(235, 222, 205);
+    color:rgb(105, 184, 253);
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase; 
 }
 #forgot_pass {
     clear:both;
